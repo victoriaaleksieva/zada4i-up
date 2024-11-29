@@ -1,0 +1,27 @@
+#include <iostream>
+char toUpper(char n)
+{
+	if (n >= 'a' && n <= 'z')
+	{
+		return n - ('a' - 'A');
+	}
+	return n;
+}
+
+
+int main()
+{
+	char arr[100];
+	int index = 0;
+
+	std::cin.getline(arr, 100);
+
+	do
+	{
+		arr[index]=toUpper(arr[index]);
+		index++;
+	} while (arr[index] != '\0');
+
+		std::cout << arr<<std::endl;
+
+}
