@@ -1,0 +1,149 @@
+#include <iostream>
+#include <cmath>
+int digitCounter(int number)
+{
+    int counter = 0;
+    while (number != 0)
+    {
+        counter++;
+        number /= 10;
+    }
+    return counter;
+}
+
+char whichLetter(int number)
+{
+    switch (number)
+    {
+    case 0:
+        return '.';
+        break;
+    case 1:
+        return 'a';
+        break;
+    case 2:
+        return 'b';
+        break;
+    case 3:
+        return 'c';
+        break;
+    case 4:
+        return 'd';
+        break;
+    case 5:
+        return 'e';
+        break;
+    case 6:
+        return 'f';
+        break;
+    case 7:
+        return 'g';
+        break;
+    case 8:
+        return 'h';
+        break;
+    case 9:
+        return 'i';
+        break;
+    case 10:
+        return 'j';
+        break;
+    case 11:
+        return 'k';
+        break;
+    case 12:
+        return 'l';
+        break;
+    case 13:
+        return 'm';
+        break;
+    case 14:
+        return 'n';
+        break;
+    case 15:
+        return 'o';
+        break;
+    case 16:
+        return 'p';
+        break;
+    case 17:
+        return 'q';
+        break;
+    case 18:
+        return 'r';
+        break;
+    case 19:
+        return 's';
+        break;
+    case 20:
+        return 't';
+        break;
+    case 21:
+        return 'u';
+        break;
+    case 22:
+        return 'v';
+        break;
+    case 23:
+        return 'w';
+        break;
+    case 24:
+        return 'x';
+        break;
+    case 25:
+        return 'y';
+        break;
+    case 26:
+        return 'z';
+        break;
+
+
+    }
+}
+
+int main()
+{
+    int number;
+    std::cin >> number;
+    int temp = number;
+    int digNumber = digitCounter(number);
+    char letter = 0;
+    int firstTwo = 0;
+    int power = power = digNumber - 2;
+    int divisor = 1;
+    int singleDig1 = 0;
+    int singleDig2 = 0;
+    bool isSingleDig = 0;
+
+
+    while (number!=0)
+    { 
+        power = power - 2;
+        for (int i = 0; i < power; i++)
+        {
+            divisor *= 10;
+        }
+        firstTwo = number / divisor;
+        if (firstTwo > 26)
+        {
+            firstTwo= firstTwo / 10;
+            singleDig2 = firstTwo % 10;
+            isSingleDig = 1;
+        }
+        std::cout << whichLetter(firstTwo);
+        if (isSingleDig)
+        {
+            std::cout << whichLetter(singleDig2);
+            isSingleDig = 0;
+        }
+        number = number % divisor;
+        divisor = 1;
+    }   
+
+    
+   
+  
+
+
+
+}
