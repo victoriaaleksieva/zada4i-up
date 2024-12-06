@@ -103,42 +103,79 @@ char whichLetter(int number)
 
 int main()
 {
-    int number;
+   int main()
+{
+    long long number;
     std::cin >> number;
     int temp = number;
-    int digNumber = digitCounter(number);
-    char letter = 0;
+    int digNumber = 0;
     int firstTwo = 0;
-    int power = power = digNumber - 2;
-    int divisor = 1;
+    int power = 0;
+    long long divisor = 1;
     int singleDig1 = 0;
     int singleDig2 = 0;
     bool isSingleDig = 0;
+    int firstDig = 0;
 
 
     while (number!=0)
     { 
-        power = power - 2;
-        for (int i = 0; i < power; i++)
+        digNumber = digitCounter(number);
+        divisor = 1;
+        if (digNumber <= 2)
         {
-            divisor *= 10;
+            firstTwo = number;
         }
-        firstTwo = number / divisor;
-        if (firstTwo > 26)
+
+        for (int i = 0; i < digNumber; i++)
         {
-            firstTwo= firstTwo / 10;
+          divisor *= 10;
+        }
+        
+        divisor /= 10;
+
+        if (number / divisor == 0)
+        {
+            std::cout << whichLetter(number % divisor);
+        
+        }
+        divisor /= 10;
+        if (digNumber <= 2)
+        {
+            firstTwo = number;
+        }
+        else
+        {
+            firstTwo = number / divisor;
+        }
+        if (firstTwo > 26 || firstTwo<10)
+        {
+            singleDig1 = firstTwo / 10;
             singleDig2 = firstTwo % 10;
             isSingleDig = 1;
         }
-        std::cout << whichLetter(firstTwo);
         if (isSingleDig)
         {
-            std::cout << whichLetter(singleDig2);
+            std::cout <<whichLetter( singleDig1) << whichLetter(singleDig2);
             isSingleDig = 0;
         }
+        else
+        {
+            std::cout << whichLetter(firstTwo);
+        }
         number = number % divisor;
-        divisor = 1;
+
     }   
+
+    
+   
+  
+
+
+
+}
+
+ 
 
     
    
