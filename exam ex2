@@ -1,0 +1,63 @@
+#include <iostream>
+char toNumber(char letter)
+{
+	
+	switch (letter)
+	{
+	case 'a':
+		return '0';
+	case 'b':
+		return '1';
+	case 'c':
+		return '2';
+	case 'd':
+		return '3';
+	case 'e':
+		return '4';
+	case 'f':
+		return '5';
+	case 'g':
+		return '6';
+	case 'h':
+		return '7';
+	case 'i':
+		return '8';
+	case 'j':
+		return '9';
+
+	}
+}
+bool isEqual(char* arr1, char* arr2, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (toNumber(arr1[i]) != arr2[i])
+		{
+			return false;
+		}
+		return true;
+	}
+}
+
+int main()
+{
+	int sizeX;
+	std::cout << "enter the size of X";
+	std::cin >> sizeX;
+	char* arrX = new char[sizeX];
+	char* arrN = new char[sizeX];
+
+	for (int i = 0; i < sizeX; i++)
+	{
+		std::cin >> arrX[i];
+	}
+	arrX[sizeX] = '\0';
+
+	for (int i = 0; i < sizeX; i++)
+	{
+		std::cin >> arrN[i];
+	}
+	arrN[sizeX] = '\0';
+
+	std::cout << isEqual(arrX, arrN, sizeX);
+}
