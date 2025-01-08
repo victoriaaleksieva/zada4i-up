@@ -1,0 +1,44 @@
+#include <iostream>
+int sumOfDigs(int n)
+{
+	if (n  == 0)
+	{
+		return 0;
+	}
+	return n % 10 + sumOfDigs(n / 10);
+}
+bool isSingleDigit(int n)
+{
+	if (sumOfDigs(n) / 10 == 0)
+	{
+		return true;
+	}
+	return false;
+}
+int main()
+{
+	int n;
+	std::cout << "enter the size of your arr:";
+	std::cin >> n;
+	int* arr = new int[n];
+
+	for (int i = 0; i < n; i++)
+	{
+		std::cin >> arr[i];
+	}
+	int counter = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		if (isSingleDigit(arr[i]))
+		{
+			std::cout << arr[i] << " ";
+
+			counter++;
+		}
+	}
+	std::cout << '\n';
+	std::cout << counter;
+	delete[] arr;
+	
+}
